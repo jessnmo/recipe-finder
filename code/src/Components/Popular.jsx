@@ -12,12 +12,18 @@ function Popular() {
 	}, []);
 
 	const getPopular = async () => {
-		const api = await fetch(
-			`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12`
-		);
-		const data = await api.json();
-		console.log(data);
-		setPopular(data.recipes);
+		const checkPopular = localStorage.getItem('popular'); //saving the result under name"popular"
+		if (checkPopular) {
+			setPopular(JSON.parse(checkPopular)); //if there's one exist, then we don't fetch (due to limited restrictions we don't want to request it so many time)
+		} else {
+			const api = await fetch(
+				`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12`
+			);
+			const data = await api.json();
+			localStorage.setItem('popular', JSON.stringify(data.recipes));
+			console.log(data);
+			setPopular(data.recipes);
+		}
 	};
 
 	return (
@@ -39,6 +45,7 @@ function Popular() {
 								<Card>
 									<p>{recipe.title}</p>
 									<img src={recipe.image} alt={recipe.title} />
+									<Gradient />
 								</Card>
 							</SplideSlide>
 						);
@@ -83,6 +90,14 @@ const Card = styled.div`
 		justify-content: center;
 		align-items: center;
 	}
+`;
+
+const Gradient = styled.div`
+	z-index: 3;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
 export default Popular;
