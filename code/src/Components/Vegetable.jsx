@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Wrapper, Gradient, Card } from '../style/GlobalStyle';
+import { Wrapper, Gradient, CardOne } from '../style/GlobalStyle';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
@@ -40,11 +40,11 @@ function Vegetable() {
 					{vegetable.map((veggieOption) => {
 						return (
 							<SplideSlide key={veggieOption.id}>
-								<Card>
+								<CardOne>
 									<p>{veggieOption.title}</p>
 									<img src={veggieOption.image} alt={veggieOption.title} />
 									<Gradient />
-								</Card>
+								</CardOne>
 							</SplideSlide>
 						);
 					})}

@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
 	margin: 4rem 0;
 `;
 
-export const Card = styled.div`
+export const CardOne = styled.div`
 	min-height: 20rem;
 
 	border-radius: 2rem;
@@ -44,4 +44,24 @@ export const Gradient = styled.div`
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+`;
+
+export const Grid = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	grid-gap: 3rem;
+`;
+
+export const CardTwo = styled.div`
+	img {
+		width: 100%;
+		border-radius: 2rem;
+	}
+	a {
+		text-decoration: none;
+	}
+	h4 {
+		text-align: center;
+		padding: 1rem;
+	}
 `;

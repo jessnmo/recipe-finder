@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Wrapper, Card, Gradient } from '../style/GlobalStyle';
+import { Wrapper, CardOne, Gradient } from '../style/GlobalStyle';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 //import '@splidejs/splide/dist/css/splide.min.css';
 import '@splidejs/react-splide/css';
@@ -42,11 +42,11 @@ function Popular() {
 					{popular.map((recipe) => {
 						return (
 							<SplideSlide key={recipe.id}>
-								<Card>
+								<CardOne>
 									<p>{recipe.title}</p>
 									<img src={recipe.image} alt={recipe.title} />
 									<Gradient />
-								</Card>
+								</CardOne>
 							</SplideSlide>
 						);
 					})}
