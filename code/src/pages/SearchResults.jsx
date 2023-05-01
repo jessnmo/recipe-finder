@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Grid, CardTwo } from '../style/GlobalStyle';
+import { Link } from 'react-router-dom';
 
 function SearchResults() {
 	const [searchResult, setSearchResult] = useState([]);
@@ -24,8 +25,10 @@ function SearchResults() {
 			{searchResult.map((item) => {
 				return (
 					<CardTwo key={item.id}>
-						<img src={item.image} alt={item.title} />
-						<h4>{item.title}</h4>
+						<Link to={'/recipe/' + item.id}>
+							<img src={item.image} alt={item.title} />
+							<h4>{item.title}</h4>
+						</Link>
 					</CardTwo>
 				);
 			})}

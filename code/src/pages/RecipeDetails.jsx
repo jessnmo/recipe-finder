@@ -8,7 +8,7 @@ function RecipeDetails() {
 	const params = useParams();
 
 	useEffect(() => {
-		fetchRecipes();
+		fetchRecipes(params.name);
 	}, [params.name]);
 
 	const fetchRecipes = async () => {

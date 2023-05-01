@@ -22,14 +22,17 @@ function Cuisine() {
 
 	return (
 		<Grid>
-			{cuisine.map((item) => {
-				return (
-					<CardTwo key={item.id}>
-						<img src={item.image} alt={item.title} />
-						<h4>{item.title}</h4>
-					</CardTwo>
-				);
-			})}
+			{cuisine &&
+				cuisine.map((item) => {
+					return (
+						<CardTwo key={item.id}>
+							<Link to={'/recipe/' + item.id}>
+								<img src={item.image} alt={item.title} />
+								<h4>{item.title}</h4>
+							</Link>
+						</CardTwo>
+					);
+				})}
 		</Grid>
 	);
 }
