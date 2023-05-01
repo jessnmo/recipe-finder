@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
 
 export const CardOne = styled.div`
 	min-height: 20rem;
-
 	border-radius: 2rem;
 	overflow: hidden;
 	position: relative;
@@ -55,6 +54,7 @@ export const Grid = styled.div`
 export const CardTwo = styled.div`
 	img {
 		width: 100%;
+
 		border-radius: 2rem;
 	}
 	a {

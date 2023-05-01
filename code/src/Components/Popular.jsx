@@ -3,6 +3,7 @@ import { Wrapper, CardOne, Gradient } from '../style/GlobalStyle';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 //import '@splidejs/splide/dist/css/splide.min.css';
 import '@splidejs/react-splide/css';
+import { Link } from 'react-router-dom';
 
 function Popular() {
 	const [popular, setPopular] = useState([]);
@@ -32,20 +33,24 @@ function Popular() {
 				<h2>Popular Recipes</h2>
 				<Splide
 					options={{
-						perPage: 3,
+						perPage: 4,
 						arrows: false,
 						pagination: false,
 						drag: 'free',
-						gap: '5rem',
+						gap: '2rem',
 					}}
 				>
 					{popular.map((recipe) => {
 						return (
 							<SplideSlide key={recipe.id}>
 								<CardOne>
-									<p>{recipe.title}</p>
-									<img src={recipe.image} alt={recipe.title} />
-									<Gradient />
+									<Link to={'/recipe/' + recipe.id}>
+										{' '}
+										{/* this takes us to the path we created in the Pages */}
+										<p>{recipe.title}</p>
+										<img src={recipe.image} alt={recipe.title} />
+										<Gradient />
+									</Link>
 								</CardOne>
 							</SplideSlide>
 						);
